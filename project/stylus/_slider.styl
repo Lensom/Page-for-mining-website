@@ -4,7 +4,38 @@
         box-shadow none 
         border-radius 10px
         border none 
+        .noUi-handle
+            width 52px
+            height 52px
+            background-position center center
+            background-size contain
+            border-radius 50%
+            box-shadow none 
+            top -16px
+            right -27px
+            &.bronze
+                background-image url(../img/bronze@2x.png)
+            &.silver
+                background-image url(../img/silver@2x.png)
+            &.gold
+                background-image url(../img/gold@2x.png)
     &-connect 
         background $blue
     &-connects
         border-radius 10px
+    &-touch-area
+        display none
+    &-handle 
+        &:after,
+        &:before
+            display none
+    &-marker 
+        display none
+    &-value
+        &-horizontal
+            font-weight 300
+            font-size 30px
+            color $gray
+            line-height 35px
+    &-pips-horizontal
+        top -90px

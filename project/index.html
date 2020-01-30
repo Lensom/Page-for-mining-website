@@ -60,45 +60,111 @@
 
 	<main class="main">
 		
-		<section class="choose">
-			<div class="wrapper">
-				<div class="choose__wrapper">
-					<h2 class="subtitle"><span class="number">1</span> Choose account type and deposit amount</h2>
-
-					<div class="choose__slider-wrapper">
-						<div id="choose__slider"></div>
+		<form action="#">
+			<section class="choose">
+				<div class="wrapper">
+					<div class="choose__wrapper">
+						<h2 class="subtitle"><span class="number">1</span> Choose account type and deposit amount</h2>
+	
+						<div class="choose__slider-wrapper">
+							<div id="choose__slider"></div>
+						</div>
+						<div class="choose__items">
+							<div class="choose__item bronze">
+								<h3 class="choose__title">Bronze account features</h3>
+								<ul class="choose__list">
+									<li>24/7 live video chat support</li>
+									<li>Withdrawals in 1 hour</li>
+									<li>Bonus +50%</li>
+								</ul>
+							</div>
+							<div class="choose__item silver">
+								<h3 class="choose__title">Silver account features</h3>
+								<ul class="choose__list">
+									<li>Demo account</li>
+									<li>Copy Trading tool</li>
+									<li>Master class (web session)</li>
+								</ul>
+							</div>
+							<div class="choose__item gold">
+								<h3 class="choose__title">gold account features</h3>
+								<ul class="choose__list">
+									<li>Personal success manager</li>
+									<li>First 3 risk free trades</li>
+								</ul>
+							</div>
+						</div>
+						<div class="choose__inputs">
+							<div class="choose__input-wrapper">
+								<h3 class="choose__subtitle">Your deposit</h3>
+								<input type="number" class="choose__input choose__deposit">USD
+							</div>
+							<div class="choose__bonus">
+								<h3 class="choose__subtitle">Bonus</h3>
+								<label class="container">
+									<input type="checkbox">
+									<span class="checkmark"></span>
+									100%
+								</label>
+							</div>
+							<div class="choose__deposit">
+								<h3 class="choose__subtitle">Total traiding deposit</h3>
+								<div class="choose__value">$<span>0</span></div>
+							</div>
+							<div class="choose__promo">
+								<h3 class="choose__subtitle">Enter promo code</h3>
+								<div class="choose__btns">
+									<input type="text">
+									<a href="#" class="choose__btn choose__btn-margin">Activate</a>
+								</div>
+							</div>
+						</div>
+						<div class="choose__policy-wrapper">
+							<a href="#" target="_blank">I read and agree with bonus policy</a>
+						</div>
 					</div>
-					<div class="choose__items">
-						<div class="choose__item bronze">
-							<h3 class="choose__title">Bronze account features</h3>
-							<ul class="choose__list">
-								<li>24/7 live video chat support</li>
-								<li>Withdrawals in 1 hour</li>
-								<li>Bonus +50%</li>
-							</ul>
+					<div class="choose__wrapper choose__second">
+						<h2 class="subtitle"><span class="number">2</span> Choose funding method</h2>
+						<div class="choose__methods">
+							<label class="choose__method" for="visa">
+								<img src="img/visa.png" alt="">
+								<input type="hidden" name="visa">
+							</label>
+							<label class="choose__method" for="bitcoin">
+								<img src="img/bitcoin.png" alt="">
+								<div class="bonus">
+									+5% bonus
+								</div>
+								<input type="hidden" name="bitcoin">
+							</label>
+							<label class="choose__method" for="altcoins">
+								<img src="img/altcoins.png" alt="">
+								<input type="hidden" name="altcoins">
+							</label>
+							<label class="choose__method" for="tether">
+								<img src="img/tether.png" alt="">
+								<input type="hidden" name="tether">
+							</label>
+							<label class="choose__method" for="perfect">
+								<img src="img/perfect_money.png" alt="">
+								<input type="hidden" name="perfect">
+							</label>
 						</div>
-						<div class="choose__item silver">
-							<h3 class="choose__title">Silver account features</h3>
-							<ul class="choose__list">
-								<li>Demo account</li>
-								<li>Copy Trading tool</li>
-								<li>Master class (web session)</li>
-							</ul>
+						<div class="choose__deposit-wrapper">
+							<h3 class="choose__subtitle">Amount in base currency:</h3>
+							<div class="choose__last"><span>0</span> USD</div>
 						</div>
-						<div class="choose__item gold">
-							<h3 class="choose__title">gold account features</h3>
-							<ul class="choose__list">
-								<li>Personal success manager</li>
-								<li>First 3 risk free trades</li>
-							</ul>
+						<div class="choose__submit-wrapper">
+							<button type="submit">Fund the account</button>
+							<div class="choose__info">
+								How to buy Bitcoins using coinbase.com: <br>
+								watch <a href="#">Quick Video tutorial</a> or read <a href="#">Text tutorial</a>
+							</div>
 						</div>
-					</div>
-					<div class="choose__inputs">
-						<input type="number" class="choose__input">
 					</div>
 				</div>
-			</div>
-		</section>
+			</section>
+		</form>
 
 
 	</main>

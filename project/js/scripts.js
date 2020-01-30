@@ -51,6 +51,15 @@ document.addEventListener("DOMContentLoaded", function() {
     let silver = document.querySelector('.silver');
     let gold = document.querySelector('.gold');
 
+    let total = document.querySelector('.choose__value span');
+    let bonus = document.querySelector('input[type="checkbox"');
+    let handle;
+
+    setTimeout(function() {
+        handle = document.querySelector('.noUi-handle');
+        handle.classList.add('bronze');
+    }, 0)
+
     let blocks = [bronze, silver, gold];
 
     // INIT SLIDER
@@ -63,48 +72,90 @@ document.addEventListener("DOMContentLoaded", function() {
         range: {
             'min': 250,
             'max': 5000
+        },
+        pips: {
+            mode: 'values',
+            values: [250, 1000, 3000, 5000],
+            density: 4,
+            format: {
+                to: function(val) {
+                    return `$${val}`
+                }
+            }
         }
     });
 
     // Settings
+    let amount = document.querySelector('.choose__last span');
+
     let blocksValues = {
         bronze: 1500,
         silver: 3000,
         gold: slider.noUiSlider.options.range.max
     }
 
+    let result = 0;
+
     slider.noUiSlider.on('change', function () {
-        let result = Math.round(slider.noUiSlider.get());
+        result = Math.round(slider.noUiSlider.get());
         setValueToInput(result);
         checkValues(result);
+        activeBonus()
      });
 
 
     let inputValue = document.querySelector('.choose__input');
     inputValue.addEventListener('keyup', function() {
-        let result = this.value;
+        result = this.value;
         setValueToSlider(result);
         checkValues(result);
+        activeBonus()
     })
+
+    bonus.addEventListener('click', function() {
+        activeBonus();
+    });
 
     function setValueToInput(result) {
         inputValue.value = result;
+        amount.innerHTML = result;
     };
 
     function setValueToSlider(result) {
         slider.noUiSlider.set(result);
+        amount.innerHTML = result;
     }
 
-    function checkValues(result) {
+    function checkValues(result, h) {
         if (result < blocksValues.bronze) {
             clearActive();
             bronze.classList.add('active');
+
+            handle.classList.add('bronze');
+            handle.classList.remove('silver');
+            handle.classList.remove('gold');
         } else if (result < blocksValues.silver) {
             clearActive();
-            silver.classList.add('active')
+            silver.classList.add('active');
+
+            handle.classList.add('silver');
+            handle.classList.remove('bronze');
+            handle.classList.remove('gold');
         } else {
             clearActive();
             gold.classList.add('active');
+
+            handle.classList.add('gold');
+            handle.classList.remove('silver');
+            handle.classList.remove('bronze');
+        }
+    }
+
+    function activeBonus() {
+        total.innerHTML = result;
+
+        if (bonus.checked) {
+            total.innerHTML = result * 2;    
         }
     }
 
@@ -112,6 +163,18 @@ document.addEventListener("DOMContentLoaded", function() {
         for (let el of blocks) {
             el.classList.remove('active');
         }
+    }
+
+
+    // Methods
+    let methods = document.querySelectorAll('.choose__method');
+    for (let el of methods) {
+        el.addEventListener('click', function() {
+            for (el of methods) {
+                el.classList.remove('active');
+            }
+            this.classList.add('active');
+        })
     }
     
 });
